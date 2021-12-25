@@ -1,0 +1,30 @@
+<!-- <div class="alert alert-success" role="alert" *ngIf="showAlert" #successAlert>
+    {{ alertMsg }}
+</div> -->
+<div id="myNav" class="overlay" #navElement>
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav(navElement)">&times;</a>
+    <div class="overlay-content">
+        <div class="list-group w-100">    
+            <app-note-item *ngFor="let note of notes; let id = index;"  [note]="note" [id]="id"></app-note-item>
+        </div>
+    </div>
+</div>
+<br><br><br>
+<div class="row">
+    <button class="btn btn-primary my-notes-btn" (click)="openNav(navElement)" #openNoteButton>&nbsp;&nbsp;&nbsp;Your Notes</button>
+</div>
+<div class="row" style="height: 100%;">
+    <div class="col-lg-4 my-notes-list" style="height: 100%; overflow-y:auto; border-right: 1px solid black;padding: 0;">    
+        <div class="w-100" style="text-align: center;">
+            <h4>Your Notes</h4>
+            <hr>
+        </div>
+        <div class="list-group" style="overflow-y: hidden;">    
+            <app-note-item *ngFor="let note of notes; let id = index;"  [note]="note" [id]="id"></app-note-item>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+

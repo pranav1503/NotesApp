@@ -1,0 +1,56 @@
+<div class="container"  *ngIf="isEditMode">    
+    <center><h1>Your note</h1></center>
+    <div class="row  jumbotron">        
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">            
+            <div class="form-group">
+                <label for="titleInput" >Note Title</label>
+                <input type="text" class="form-control" id="titleInput" [(ngModel)]="noteTitleInp" #noteTitle>
+            </div>
+            <div class="form-group">
+                <label for="noteTextArea">Note Text</label>
+                <textarea class="form-control" id="noteTextArea" rows="8" [(ngModel)]="noteNoteInp" #noteText></textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <button class="btn btn-primary btn-block" (click)="onNoteEdit(noteTitle.value, noteText.value)">Save Changes</button>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <button class="btn btn-danger btn-block" (click)="onNoteDelete()">Delete Note</button>
+                </div>
+            </div>            
+        </div>
+        <div class="col-lg-2"></div>
+    </div>    
+</div>
+
+
+<div class="container"  *ngIf="!isEditMode">
+    <center><h1>Add a new note</h1></center>
+    <div class="row  jumbotron">            
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">            
+            <div class="form-group">
+                <label for="titleInput" >Note Title</label>
+                <input type="text" class="form-control" id="titleInput" #noteTitle>
+            </div>
+            <div class="form-group">
+                <label for="noteTextArea">Note Text</label>
+                <textarea class="form-control" id="noteTextArea" rows="8" #noteText></textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <button class="btn btn-primary btn-block" (click)="onNewNoteAdd(noteTitle.value, noteText.value)">Add Note</button>
+                </div>
+                <div class="col-lg-6" style="margin-top: 10px;">
+                    <button class="btn btn-danger btn-block" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>          
+        </div>
+        <div class="col-lg-2"></div>
+    </div>    
+</div>
+
+
